@@ -1,17 +1,21 @@
-// BASE FILE FOR SCOTT PILGRIM VS THE WORLD ARDUINO PROGJECT
-//adrian
+#include <Servo.h>
+
+Servo servo180;
+Servo servo360;
+const int buttonPin = 2;
 
 void setup() {
-  // put your setup code here, to run once:
-  // imagine code here, amazing code
-
+  //servo360.attach(10);
+  servo180.attach(9);
+  pinMode(buttonPin, INPUT);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  // imagine code here
+  if (digitalRead(buttonPin) == HIGH) {
+    servo180.write(180);
+    servo360.write(180);
+  } else {
+    servo180.write(0);
+    servo360.write(90);
+  }
 }
-
-//                      MC Mikey                           //
-
-//this is a new branch its name is felix -sofia
