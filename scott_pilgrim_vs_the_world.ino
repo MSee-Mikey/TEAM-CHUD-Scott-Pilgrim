@@ -1,42 +1,35 @@
 #include <Servo.h>
 
-Servo servo180;
+Servo servo1801;
+Servo servo1802;
 Servo servo360;
-const int buttonPin = 2;
-const int ledPin = 3;
-const int redPin = 11;
-const int greenPin = 10;
-const int bluePin = 9; 
+const int buttonPin1 = 2;
+const int buttonPin2 = 3;
+const int buttonPin3 = 4;
+const int ledPin = 9;
 
 void setup() {
   //servo360.attach(10);
-  //servo180.attach(8);
-  pinMode(buttonPin, INPUT);
-  pinMode(ledPin, OUTPUT);
-  pinMode(redPin, OUTPUT);
-  pinMode(greenPin, OUTPUT);
-  pinMode(bluePin, OUTPUT);
+  servo1801.attach(8);
+  servo1802.attach(7);
+  pinMode(buttonPin1, INPUT);
+  pinMode(buttonPin2, INPUT);
+  pinMode(buttonPin3, INPUT);
 }
 
 void loop() {
-  if (digitalRead(buttonPin) == HIGH) {
-    servo180.write(180); //
-    servo360.write(180);
-    digitalWrite(ledPin, HIGH); // standard red LED
-    //setColor(255, 50, 0); // light yellow color
-    //setColor(100, 70, 90); // white
-    setColor(100, 10, 0); //light orange (?)
+digitalWrite(ledPin, HIGH);
 
+  //first servo, works with first evil ex on 1st platform
+  if (digitalRead(buttonPin1) == HIGH) {
+    servo1801.write(180);
   } else {
-    servo180.write(90);
-    servo360.write(90);
-    digitalWrite(ledPin, LOW);
-    setColor(0, 0, 0);
+    servo1801.write(90);
   }
-}
-
-void setColor(int redValue, int greenValue, int blueValue) {
-  analogWrite(redPin, redValue);
-  analogWrite(greenPin,  greenValue); 
-  analogWrite(bluePin, blueValue);
+//second servo, works with second evil ex on 3rd platform
+  if (digitalRead(buttonPin2) == HIGH) {
+    servo1802.write(180);
+  } else {
+    servo1802.write(90);
+  }
 }
