@@ -18,7 +18,6 @@ const int buttonPin6 = 7;
 const int ledPin = 1;
 
 void setup() {
-  //servo360.attach(10);
   servo1801.attach(8);
   servo1802.attach(9);
   servo1803.attach(10);
@@ -72,16 +71,12 @@ void loop() {
     servo3602.write(90);
   }
 
+  //5th servo, gideon falls behind the pyramid
       if (digitalRead(buttonPin5) == HIGH) {
-    //servo3601.write(180);
+    servo1803.write(180);
+    servo3603.write(180);
   } else {
-    //servo3601.write(90);
+    servo1803.write(90);
+    servo3603.write(90);
   }
-
-      if (digitalRead(buttonPin6) == HIGH) {
-    //servo1801.write(180);
-  } else {
-    //servo1801.write(90);
-  }
-  
 }
