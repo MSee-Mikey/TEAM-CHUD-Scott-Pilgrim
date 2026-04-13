@@ -15,7 +15,7 @@ const int buttonPin4 = 5;
 const int buttonPin5 = 6;
 const int buttonPin6 = 7;
 
-const int ledPin = 9;
+const int ledPin = 1;
 
 void setup() {
   //servo360.attach(10);
@@ -24,8 +24,8 @@ void setup() {
   servo1803.attach(10);
 
   servo3601.attach(11);
-  servo3601.attach(12);
-  servo3601.attach(13);
+  servo3602.attach(12);
+  servo3603.attach(13);
 
   pinMode(buttonPin1, INPUT);
   pinMode(buttonPin2, INPUT);
@@ -33,12 +33,14 @@ void setup() {
   pinMode(buttonPin4, INPUT);
   pinMode(buttonPin5, INPUT);
   pinMode(buttonPin6, INPUT);
+
+  pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-//digitalWrite(ledPin, LOW);
+//digitalWrite(ledPin, HIGH);
 
-  //first servo, works with first evil ex on 1st platform
+  //first servo, works with matthew
   if (digitalRead(buttonPin1) == HIGH) {
     servo1801.write(180);
     Serial.println("Button Pressed");
@@ -47,31 +49,33 @@ void loop() {
     Serial.println("Button Released");
   }
 
-//second servo, works with second evil ex on 3rd platform
+//second servo, works with vegan council
   if (digitalRead(buttonPin2) == HIGH) {
-    //servo1801.write(180);
+    servo1802.write(180);
+    digitalWrite(ledPin, LOW);
   } else {
-    //servo1801.write(90);
+    servo1802.write(0);
+    digitalWrite(ledPin, HIGH);
   }
 
-  //3rd servo
+  //3rd servo, works with ramona's arms
     if (digitalRead(buttonPin3) == HIGH) {
-    //servo1801.write(180);
+    servo3601.write(180);
   } else {
-    //servo1801.write(90);
+    servo3601.write(90);
   }
 
-  //4th servo
+  //4th servo, works with music
     if (digitalRead(buttonPin4) == HIGH) {
-    //servo1801.write(180);
+    servo3602.write(180);
   } else {
-    //servo1801.write(90);
+    servo3602.write(90);
   }
 
       if (digitalRead(buttonPin5) == HIGH) {
-    //servo1801.write(180);
+    //servo3601.write(180);
   } else {
-    //servo1801.write(90);
+    //servo3601.write(90);
   }
 
       if (digitalRead(buttonPin6) == HIGH) {
