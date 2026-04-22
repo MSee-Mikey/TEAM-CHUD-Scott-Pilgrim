@@ -1,44 +1,44 @@
 #include <Servo.h>
 
+//setting up 180s
 Servo servo1801;
 Servo servo1802;
 Servo servo1803;
 
+//setting up 360s
 Servo servo3601;
 Servo servo3602;
 Servo servo3603;
 
+//setting up buttons
 const int buttonPin1 = 2;
 const int buttonPin2 = 3;
 const int buttonPin3 = 4;
 const int buttonPin4 = 5;
 const int buttonPin5 = 6;
-const int buttonPin6 = 7;
 
+//LED Light set up
 const int ledPin = 1;
 
-void setup() {
+void setup() {  
   servo1801.attach(8);
   servo1802.attach(9);
   servo1803.attach(10);
 
   servo3601.attach(11);
   servo3602.attach(12);
-  servo3603.attach(13);
+  servo3603.attach(7);
 
   pinMode(buttonPin1, INPUT);
   pinMode(buttonPin2, INPUT);
   pinMode(buttonPin3, INPUT);
   pinMode(buttonPin4, INPUT);
   pinMode(buttonPin5, INPUT);
-  pinMode(buttonPin6, INPUT);
 
   pinMode(ledPin, OUTPUT);
 }
 
 void loop() {
-//digitalWrite(ledPin, HIGH);
-
   //first servo, works with matthew
   if (digitalRead(buttonPin1) == HIGH) {
     servo1801.write(180);
@@ -59,19 +59,19 @@ void loop() {
 
   //3rd servo, works with ramona's arms
     if (digitalRead(buttonPin3) == HIGH) {
-    servo3601.write(180);
+    servo3601.write(0);
   } else {
     servo3601.write(90);
   }
 
-  //4th servo, works with music
+  //4th servo, works with music notes
     if (digitalRead(buttonPin4) == HIGH) {
-    servo3602.write(180);
+    servo3602.write(80);
   } else {
     servo3602.write(90);
   }
 
-  //5th servo, gideon falls behind the pyramid
+  //5th servo, gideon falls behind the pyramid/hearts spin
       if (digitalRead(buttonPin5) == HIGH) {
     servo1803.write(180);
     servo3603.write(180);
